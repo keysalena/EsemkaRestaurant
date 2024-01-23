@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="11afa33fddf24c7b91c22b801e66cfaa" Name="Diagram1">
+        <EntityTypeShape EntityType="EsemkaRestaurantModel.Detailorder" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaRestaurantModel.Headerorder" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaRestaurantModel.Msemployee" Width="1.5" PointX="1.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaRestaurantModel.Msmember" Width="1.5" PointX="1.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaRestaurantModel.Msmenu" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaRestaurantModel.sysdiagram" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EsemkaRestaurantModel.Table_1" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="EsemkaRestaurantModel.FK_Detailorder_Msmenu" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaRestaurantModel.FK_Detailorder_Msmenu1" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaRestaurantModel.FK_Headerorder_Msemployee" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaRestaurantModel.FK_Headerorder_Msmember" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaRestaurantModel.FK_Table_1_Headerorder" ManuallyRouted="false" />
+        <AssociationConnector Association="EsemkaRestaurantModel.FK_Table_1_Msmenu" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
