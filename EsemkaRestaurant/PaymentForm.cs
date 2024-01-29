@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace EsemkaRestaurant
 {
-    public partial class ChefForm : Form
+    public partial class PaymentForm : Form
     {
-        public ChefForm()
+        public PaymentForm()
         {
             InitializeComponent();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

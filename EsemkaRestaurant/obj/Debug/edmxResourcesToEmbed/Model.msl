@@ -69,17 +69,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Table_1">
-      <EntityTypeMapping TypeName="EsemkaRestaurantModel.Table_1">
-        <MappingFragment StoreEntitySet="Table_1">
-          <ScalarProperty Name="DetailID" ColumnName="DetailID" />
-          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-          <ScalarProperty Name="Qty" ColumnName="Qty" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="status" ColumnName="status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -43,6 +43,7 @@
             this.button5.TabIndex = 19;
             this.button5.Text = "Logout";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -52,6 +53,7 @@
             this.button4.TabIndex = 18;
             this.button4.Text = "Change Password";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -61,6 +63,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "Payment";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -82,7 +85,7 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Chasier Navigation";
             // 
-            // ChasierForm
+            // CashierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -93,8 +96,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ChasierForm";
-            this.Text = "ChasierForm";
+            this.Name = "CashierForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form Chasier ";
+            this.Load += new System.EventHandler(this.CashierForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -43,5 +43,17 @@ namespace EsemkaRestaurant
             var name = entities.Msemployees.FirstOrDefault(r => r.EmployeeID == this.id);
             label2.Text = $"Welcome, {name.Name}";
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ChangePass cp = new ChangePass();
+            cp.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Login login= new Login();
+            login.Show();
+        }
     }
 }

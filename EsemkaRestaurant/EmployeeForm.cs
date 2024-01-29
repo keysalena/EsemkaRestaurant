@@ -68,6 +68,9 @@ namespace EsemkaRestaurant
 
         private void InsertBtn_Click(object sender, EventArgs e)
         {
+            EditBtn.Enabled = false;
+            DeleteBtn.Enabled = false;
+            msemployeeBindingSource1.AddNew();
             EmployeetextBox.Enabled = true;
             EnableLoad();
             EmployeetextBox.UseSystemPasswordChar = true;

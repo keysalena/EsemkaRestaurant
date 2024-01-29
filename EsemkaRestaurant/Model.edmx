@@ -21,11 +21,11 @@
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="EmployeeID" Type="nchar" MaxLength="6" Nullable="false" />
-          <Property Name="MemberID" Type="nchar" MaxLength="8" Nullable="false" />
-          <Property Name="Date" Type="date" Nullable="false" />
-          <Property Name="Payment" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="bank" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeID" Type="nchar" MaxLength="6" />
+          <Property Name="MemberID" Type="nchar" MaxLength="8" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Payment" Type="nvarchar" MaxLength="50" />
+          <Property Name="bank" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Msemployee">
           <Key>
@@ -67,17 +67,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="Table_1">
-          <Key>
-            <PropertyRef Name="DetailID" />
-          </Key>
-          <Property Name="DetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OrderID" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="MenuID" Type="int" Nullable="false" />
-          <Property Name="Qty" Type="int" Nullable="false" />
-          <Property Name="Price" Type="int" Nullable="false" />
-          <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
-        </EntityType>
         <Association Name="FK_Detailorder_Msmenu">
           <End Role="Msmenu" Type="Self.Msmenu" Multiplicity="1" />
           <End Role="Detailorder" Type="Self.Detailorder" Multiplicity="*" />
@@ -102,8 +91,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Headerorder_Msemployee">
-          <End Role="Msemployee" Type="Self.Msemployee" Multiplicity="1" />
+        <Association Name="FK_Headerorderr_Msemployee">
+          <End Role="Msemployee" Type="Self.Msemployee" Multiplicity="0..1" />
           <End Role="Headerorder" Type="Self.Headerorder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Msemployee">
@@ -114,8 +103,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Headerorder_Msmember">
-          <End Role="Msmember" Type="Self.Msmember" Multiplicity="1" />
+        <Association Name="FK_Headerorderr_Msmember">
+          <End Role="Msmember" Type="Self.Msmember" Multiplicity="0..1" />
           <End Role="Headerorder" Type="Self.Headerorder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Msmember">
@@ -126,30 +115,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Table_1_Headerorder">
-          <End Role="Headerorder" Type="Self.Headerorder" Multiplicity="1" />
-          <End Role="Table_1" Type="Self.Table_1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Headerorder">
-              <PropertyRef Name="OrderID" />
-            </Principal>
-            <Dependent Role="Table_1">
-              <PropertyRef Name="OrderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Table_1_Msmenu">
-          <End Role="Msmenu" Type="Self.Msmenu" Multiplicity="1" />
-          <End Role="Table_1" Type="Self.Table_1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Msmenu">
-              <PropertyRef Name="MenuID" />
-            </Principal>
-            <Dependent Role="Table_1">
-              <PropertyRef Name="MenuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="EsemkaRestaurantModelStoreContainer">
           <EntitySet Name="Detailorder" EntityType="Self.Detailorder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Headerorder" EntityType="Self.Headerorder" Schema="dbo" store:Type="Tables" />
@@ -157,7 +122,6 @@
           <EntitySet Name="Msmember" EntityType="Self.Msmember" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Msmenu" EntityType="Self.Msmenu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Table_1" EntityType="Self.Table_1" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Detailorder_Msmenu" Association="Self.FK_Detailorder_Msmenu">
             <End Role="Msmenu" EntitySet="Msmenu" />
             <End Role="Detailorder" EntitySet="Detailorder" />
@@ -166,21 +130,13 @@
             <End Role="Msmenu" EntitySet="Msmenu" />
             <End Role="Detailorder" EntitySet="Detailorder" />
           </AssociationSet>
-          <AssociationSet Name="FK_Headerorder_Msemployee" Association="Self.FK_Headerorder_Msemployee">
+          <AssociationSet Name="FK_Headerorderr_Msemployee" Association="Self.FK_Headerorderr_Msemployee">
             <End Role="Msemployee" EntitySet="Msemployee" />
             <End Role="Headerorder" EntitySet="Headerorder" />
           </AssociationSet>
-          <AssociationSet Name="FK_Headerorder_Msmember" Association="Self.FK_Headerorder_Msmember">
+          <AssociationSet Name="FK_Headerorderr_Msmember" Association="Self.FK_Headerorderr_Msmember">
             <End Role="Msmember" EntitySet="Msmember" />
             <End Role="Headerorder" EntitySet="Headerorder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_1_Headerorder" Association="Self.FK_Table_1_Headerorder">
-            <End Role="Headerorder" EntitySet="Headerorder" />
-            <End Role="Table_1" EntitySet="Table_1" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_1_Msmenu" Association="Self.FK_Table_1_Msmenu">
-            <End Role="Msmenu" EntitySet="Msmenu" />
-            <End Role="Table_1" EntitySet="Table_1" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -206,14 +162,13 @@
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="EmployeeID" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="MemberID" Type="String" MaxLength="8" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Msemployee" Relationship="Self.FK_Headerorder_Msemployee" FromRole="Headerorder" ToRole="Msemployee" />
-          <NavigationProperty Name="Msmember" Relationship="Self.FK_Headerorder_Msmember" FromRole="Headerorder" ToRole="Msmember" />
-          <NavigationProperty Name="Table_1" Relationship="Self.FK_Table_1_Headerorder" FromRole="Headerorder" ToRole="Table_1" />
+          <Property Name="EmployeeID" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="MemberID" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Payment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Msemployee" Relationship="Self.FK_Headerorderr_Msemployee" FromRole="Headerorder" ToRole="Msemployee" />
+          <NavigationProperty Name="Msmember" Relationship="Self.FK_Headerorderr_Msmember" FromRole="Headerorder" ToRole="Msmember" />
         </EntityType>
         <EntityType Name="Msemployee">
           <Key>
@@ -225,7 +180,7 @@
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Handphone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Headerorders" Relationship="Self.FK_Headerorder_Msemployee" FromRole="Msemployee" ToRole="Headerorder" />
+          <NavigationProperty Name="Headerorders" Relationship="Self.FK_Headerorderr_Msemployee" FromRole="Msemployee" ToRole="Headerorder" />
         </EntityType>
         <EntityType Name="Msmember">
           <Key>
@@ -236,7 +191,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Handphone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="JoinDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Headerorders" Relationship="Self.FK_Headerorder_Msmember" FromRole="Msmember" ToRole="Headerorder" />
+          <NavigationProperty Name="Headerorders" Relationship="Self.FK_Headerorderr_Msmember" FromRole="Msmember" ToRole="Headerorder" />
         </EntityType>
         <EntityType Name="Msmenu">
           <Key>
@@ -248,7 +203,6 @@
           <Property Name="Photo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Detailorders" Relationship="Self.FK_Detailorder_Msmenu" FromRole="Msmenu" ToRole="Detailorder" />
           <NavigationProperty Name="Detailorders1" Relationship="Self.FK_Detailorder_Msmenu1" FromRole="Msmenu" ToRole="Detailorder" />
-          <NavigationProperty Name="Table_1" Relationship="Self.FK_Table_1_Msmenu" FromRole="Msmenu" ToRole="Table_1" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -259,19 +213,6 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Table_1">
-          <Key>
-            <PropertyRef Name="DetailID" />
-          </Key>
-          <Property Name="DetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OrderID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="MenuID" Type="Int32" Nullable="false" />
-          <Property Name="Qty" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Int32" Nullable="false" />
-          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Headerorder" Relationship="Self.FK_Table_1_Headerorder" FromRole="Table_1" ToRole="Headerorder" />
-          <NavigationProperty Name="Msmenu" Relationship="Self.FK_Table_1_Msmenu" FromRole="Table_1" ToRole="Msmenu" />
         </EntityType>
         <Association Name="FK_Detailorder_Msmenu">
           <End Role="Msmenu" Type="Self.Msmenu" Multiplicity="1" />
@@ -297,8 +238,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Headerorder_Msemployee">
-          <End Role="Msemployee" Type="Self.Msemployee" Multiplicity="1" />
+        <Association Name="FK_Headerorderr_Msemployee">
+          <End Role="Msemployee" Type="Self.Msemployee" Multiplicity="0..1" />
           <End Role="Headerorder" Type="Self.Headerorder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Msemployee">
@@ -309,8 +250,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Headerorder_Msmember">
-          <End Role="Msmember" Type="Self.Msmember" Multiplicity="1" />
+        <Association Name="FK_Headerorderr_Msmember">
+          <End Role="Msmember" Type="Self.Msmember" Multiplicity="0..1" />
           <End Role="Headerorder" Type="Self.Headerorder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Msmember">
@@ -321,30 +262,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Table_1_Headerorder">
-          <End Role="Headerorder" Type="Self.Headerorder" Multiplicity="1" />
-          <End Role="Table_1" Type="Self.Table_1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Headerorder">
-              <PropertyRef Name="OrderID" />
-            </Principal>
-            <Dependent Role="Table_1">
-              <PropertyRef Name="OrderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Table_1_Msmenu">
-          <End Role="Msmenu" Type="Self.Msmenu" Multiplicity="1" />
-          <End Role="Table_1" Type="Self.Table_1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Msmenu">
-              <PropertyRef Name="MenuID" />
-            </Principal>
-            <Dependent Role="Table_1">
-              <PropertyRef Name="MenuID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="EsemkaRestaurantEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Detailorders" EntityType="Self.Detailorder" />
           <EntitySet Name="Headerorders" EntityType="Self.Headerorder" />
@@ -352,7 +269,6 @@
           <EntitySet Name="Msmembers" EntityType="Self.Msmember" />
           <EntitySet Name="Msmenus" EntityType="Self.Msmenu" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="Table_1" EntityType="Self.Table_1" />
           <AssociationSet Name="FK_Detailorder_Msmenu" Association="Self.FK_Detailorder_Msmenu">
             <End Role="Msmenu" EntitySet="Msmenus" />
             <End Role="Detailorder" EntitySet="Detailorders" />
@@ -361,21 +277,13 @@
             <End Role="Msmenu" EntitySet="Msmenus" />
             <End Role="Detailorder" EntitySet="Detailorders" />
           </AssociationSet>
-          <AssociationSet Name="FK_Headerorder_Msemployee" Association="Self.FK_Headerorder_Msemployee">
+          <AssociationSet Name="FK_Headerorderr_Msemployee" Association="Self.FK_Headerorderr_Msemployee">
             <End Role="Msemployee" EntitySet="Msemployees" />
             <End Role="Headerorder" EntitySet="Headerorders" />
           </AssociationSet>
-          <AssociationSet Name="FK_Headerorder_Msmember" Association="Self.FK_Headerorder_Msmember">
+          <AssociationSet Name="FK_Headerorderr_Msmember" Association="Self.FK_Headerorderr_Msmember">
             <End Role="Msmember" EntitySet="Msmembers" />
             <End Role="Headerorder" EntitySet="Headerorders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_1_Headerorder" Association="Self.FK_Table_1_Headerorder">
-            <End Role="Headerorder" EntitySet="Headerorders" />
-            <End Role="Table_1" EntitySet="Table_1" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_1_Msmenu" Association="Self.FK_Table_1_Msmenu">
-            <End Role="Msmenu" EntitySet="Msmenus" />
-            <End Role="Table_1" EntitySet="Table_1" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -449,18 +357,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Table_1">
-            <EntityTypeMapping TypeName="EsemkaRestaurantModel.Table_1">
-              <MappingFragment StoreEntitySet="Table_1">
-                <ScalarProperty Name="DetailID" ColumnName="DetailID" />
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

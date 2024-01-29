@@ -14,22 +14,14 @@ namespace EsemkaRestaurant
     
     public partial class Headerorder
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Headerorder()
-        {
-            this.Table_1 = new HashSet<Table_1>();
-        }
-    
         public string OrderID { get; set; }
         public string EmployeeID { get; set; }
         public string MemberID { get; set; }
-        public System.DateTime Date { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public string Payment { get; set; }
         public string bank { get; set; }
     
         public virtual Msemployee Msemployee { get; set; }
         public virtual Msmember Msmember { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Table_1> Table_1 { get; set; }
     }
 }

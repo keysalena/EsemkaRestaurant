@@ -52,6 +52,7 @@
             this.button4.TabIndex = 13;
             this.button4.Text = "Change Password";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -94,6 +95,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ChefForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChefForm";
             this.ResumeLayout(false);
             this.PerformLayout();

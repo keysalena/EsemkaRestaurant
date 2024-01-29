@@ -19,7 +19,6 @@ namespace EsemkaRestaurant
         {
             this.Detailorders = new HashSet<Detailorder>();
             this.Detailorders1 = new HashSet<Detailorder>();
-            this.Table_1 = new HashSet<Table_1>();
         }
     
         public int MenuID { get; set; }
@@ -31,7 +30,5 @@ namespace EsemkaRestaurant
         public virtual ICollection<Detailorder> Detailorders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Detailorder> Detailorders1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Table_1> Table_1 { get; set; }
     }
 }

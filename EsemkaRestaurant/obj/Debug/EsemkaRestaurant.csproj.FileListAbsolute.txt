@@ -21,3 +21,4 @@ D:\LKS\EsemkaRestaurant\EsemkaRestaurant\obj\Debug\EsemkaRestaurant.AdminForm.re
 D:\LKS\EsemkaRestaurant\EsemkaRestaurant\obj\Debug\EsemkaRestaurant.CashierForm.resources
 D:\LKS\EsemkaRestaurant\EsemkaRestaurant\obj\Debug\EsemkaRestaurant.ChefForm.resources
 D:\LKS\EsemkaRestaurant\EsemkaRestaurant\obj\Debug\EsemkaRestaurant.ChangePass.resources
+D:\LKS\EsemkaRestaurant\EsemkaRestaurant\obj\Debug\EsemkaRestaurant.OrderForm.resources

@@ -31,6 +31,5 @@ namespace EsemkaRestaurant
         public virtual DbSet<Msmember> Msmembers { get; set; }
         public virtual DbSet<Msmenu> Msmenus { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Table_1> Table_1 { get; set; }
     }
 }
